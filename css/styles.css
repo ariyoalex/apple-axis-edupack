@@ -1,0 +1,459 @@
+@font-face {
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 400;
+    src: url('sf-pro-display_regular.eot');
+    src: local('☺'), url("sf-pro-display_regular.woff2") format("woff2"), url("sf-pro-display_regular.woff") format("woff"), url("sf-pro-display_regular.ttf") format("truetype");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: 1.5;
+    color: #1d1d1f;
+    background-color: #f5f5f7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+header {
+    background-color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+
+}
+
+nav {
+    max-width: 1000px;
+
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+}
+
+.apple-logo {
+    font-size: 1.2em;
+
+    font-weight: 600;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #1d1d1f;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007aff;
+
+}
+
+.icon {
+    font-size: 1.1em;
+}
+
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 999px;
+    /* Pill shape */
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #007aff;
+
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #006aff;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #007aff;
+    border: 1px solid #007aff;
+}
+
+.btn-secondary:hover {
+    background-color: #e6f0ff;
+
+}
+
+.btn-find-your {
+    background-color: #1d1d1f;
+
+    color: white;
+    border: none;
+    padding: 8px 18px;
+
+    font-size: 0.85em;
+}
+
+.btn-find-your:hover {
+    background-color: #333;
+}
+
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px 40px;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.hero-content {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.8em;
+    color: #6e6e73;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.hero-image {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+
+    text-align: center;
+    margin-top: 40px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.image-nav-dots {
+    position: absolute;
+    bottom: -20px;
+
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #6e6e73;
+}
+
+
+.overview-features {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 20px;
+    background-color: #f5f5f7;
+
+}
+
+.feature-item {
+    text-align: center;
+    max-width: 200px;
+}
+
+.feature-item img {
+    width: 150px;
+
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.feature-item p {
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+
+.specs-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    background-color: #fff;
+    border-top: 1px solid #e0e0e0;
+}
+
+.specs-section h2 {
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.spec-item {
+    font-size: 1em;
+    line-height: 2;
+    color: #424245;
+}
+
+.spec-item strong {
+    color: #1d1d1f;
+    font-weight: 600;
+}
+
+.spec-item .icon {
+    margin-right: 8px;
+    font-size: 1.1em;
+    vertical-align: middle;
+}
+
+.spec-item-diagram {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+    padding-top: 40px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.spec-item-diagram img {
+    width: 28%;
+    height: auto;
+    object-fit: contain;
+    filter: invert(0.1);
+    opacity: 0.8;
+}
+
+/* Video Preview Section */
+.video-preview-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.video-preview-content {
+    text-align: center;
+    color: white;
+}
+
+.video-preview-content h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.video-preview-content p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    opacity: 0.95;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+    background: #000;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.video-container:hover .video-overlay {
+    opacity: 1;
+}
+
+.play-button {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: all;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.play-button:hover {
+    transform: scale(1.1);
+    background: white;
+}
+
+.play-button::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 25px solid #007aff;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    margin-left: 5px;
+}
+
+.video-caption {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.95em;
+    opacity: 0.9;
+    font-style: italic;
+}
+
+
+.gallery-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    background-color: #f5f5f7;
+    border-top: 1px solid #e0e0e0;
+}
+
+.gallery-section h2 {
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 250px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+}
+
+
+footer {
+    background-color: #fff;
+    padding: 30px 20px;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    font-size: 0.9em;
+}
+
+.footer-links .apple-logo {
+    font-size: 1.1em;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #424245;
+}
+
+.footer-links a:hover {
+    color: #1d1d1f;
+}
+
+@media (max-width: 768px) {
+    .specs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .video-preview-section {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .video-preview-content h2 {
+        font-size: 2em;
+    }
+}
