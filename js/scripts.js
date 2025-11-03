@@ -57,27 +57,79 @@ document.addEventListener('DOMContentLoaded', () => {
     // Video controls
     const video = document.getElementById('previewVideo');
     const playButton = document.getElementById('playButton');
-    const videoOverlay = document.querySelector('.video-overlay');
+    const videoOverlay = document.getElementById('videoOverlay');
 
-    playButton.addEventListener('click', () => {
-        if (video.paused) {
-            video.play();
+    if (playButton && video && videoOverlay) {
+        playButton.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+                videoOverlay.style.opacity = '0';
+                videoOverlay.style.pointerEvents = 'none';
+            } else {
+                video.pause();
+                videoOverlay.style.opacity = '1';
+                videoOverlay.style.pointerEvents = 'auto';
+            }
+        });
+
+        video.addEventListener('play', () => {
             videoOverlay.style.opacity = '0';
-        } else {
-            video.pause();
+            videoOverlay.style.pointerEvents = 'none';
+        });
+
+        video.addEventListener('pause', () => {
             videoOverlay.style.opacity = '1';
-        }
+            videoOverlay.style.pointerEvents = 'auto';
+        });
+
+        video.addEventListener('ended', () => {
+            videoOverlay.style.opacity = '1';
+            videoOverlay.style.pointerEvents = 'auto';
+        });
+
+        video.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+    }
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                // Close mobile menu if open
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    bootstrap.Collapse.getInstance(navbarCollapse).hide();
+                }
+            }
+        });
     });
 
-    video.addEventListener('play', () => {
-        videoOverlay.style.opacity = '0';
-    });
+    // Add fade-in animation on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
 
-    video.addEventListener('pause', () => {
-        videoOverlay.style.opacity = '1';
-    });
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-fade-in');
+            }
+        });
+    }, observerOptions);
 
-    video.addEventListener('ended', () => {
-        videoOverlay.style.opacity = '1';
+    document.querySelectorAll('.feature-card, .spec-card, .gallery-item').forEach(el => {
+        observer.observe(el);
     });
 });
